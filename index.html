@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./style.css"></script>
+    <script src="app.js"></script>
+
+</head>
+<body>
+    <div x-data="counter">
+        <div class="flex justify-center p-5">
+            <h1 x-text="count" class="text-lg"></h1>
+        </div>
+        <div class="flex justify-center ml-7">
+            <button @click="increment" class="border rounded mr-5 p-2 shadow-md">Increment</button>
+            <button @click="decrement" class="border rounded mr-5 p-2 shadow-md">Decrement</button>
+        </div>
+    </div>
+    <div x-data="users()" class="mt-10">      
+        <table>
+            <tbody class="w-full">
+                <tr class="text-left">
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                </tr>
+                    <template x-for="user in users" :key="user.id">
+                        <tr>
+                            <td x-text="user.username" class="pr-2"></td>
+                            <td x-text="user.name" class="pr-2"></td>
+                            <td x-text="user.email" class="pr-2"></td>
+                        </tr>
+                    </template>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</body>
+</html>
